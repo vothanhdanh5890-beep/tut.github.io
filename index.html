@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Võ Thành Danh</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: #e8f0ff;
+        font-family: Arial, sans-serif;
+        overflow-x: hidden;
+    }
+
+    /* Khung chứa */
+    .container {
+        display: flex;
+        gap: 30px;
+        max-width: 900px;
+        margin: 50px auto;
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        position: relative;
+        z-index: 10;
+        animation: fadeIn 1s ease-in-out;
+    }
+
+    /* Avatar trái */
+    .avatar {
+        width: 220px;
+        height: 220px;
+        border-radius: 15px;
+        object-fit: cover;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    }
+
+    /* Text phải */
+    .info h1 {
+        margin-top: 0;
+        color: #1d3557;
+    }
+
+    .slogan {
+        font-style: italic;
+        font-size: 18px;
+        color: #457b9d;
+        margin-bottom: 15px;
+    }
+
+    .info p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    /* Hiệu ứng fade */
+    @keyframes fadeIn {
+        from {opacity: 0; transform: translateY(20px);}
+        to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* Nút trở lại */
+    .back {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .back a {
+        text-decoration: none;
+        padding: 10px 20px;
+        background: #1d3557;
+        color: white;
+        border-radius: 8px;
+        transition: 0.3s;
+    }
+    .back a:hover {
+        background: #457b9d;
+    }
+
+    /* Hiệu ứng tuyết rơi */
+    .snowflake {
+        position: fixed;
+        top: -10px;
+        color: white;
+        font-size: 1em;
+        pointer-events: none;
+        animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+        0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(100vh) rotate(360deg); opacity: 0.3; }
+    }
+</style>
+</head>
+
+<body>
+
+<!-- Khung giới thiệu -->
+<div class="container">
+    <img class="avatar" src="https://raw.githubusercontent.com/vothanhdanh5890-beep/thanhdanh0gay.github.io/refs/heads/main/images%20(1).jpg" alt="Võ Thành Danh">
+
+    <div class="info">
+        <h1>Võ Thành Danh</h1>
+        <p class="slogan">"Sáng tạo không có giới hạn – chỉ có deadline giới hạn tôi!"</p>
+
+        <h3>Tính cách</h3>
+        <p>Hài hước, thân thiện, lúc nào cũng là người khuấy động không khí trong nhóm.</p>
+
+        <h3>Sở thích</h3>
+        <p>Chụp ảnh, nghe nhạc chill và xem phim tình cảm nhẹ nhàng.</p>
+
+        <h3>Sở trường</h3>
+        <p>Thiết kế đẹp mắt, trình bày slide, và giữ tinh thần đoàn kết cho cả nhóm.</p>
+    </div>
+</div>
+
+<!-- Nút quay lại -->
+<div class="back">
+    <a href="https://vothanhdanh5890-beep.github.io/thanhdanh0gay.github.io/">⬅ Quay lại trang chủ</a>
+</div>
+
+<!-- Script tạo tuyết -->
+<script>
+    function createSnow() {
+        const snow = document.createElement("div");
+        snow.className = "snowflake";
+        snow.innerHTML = "❄";
+
+        // Vị trí ngẫu nhiên
+        snow.style.left = Math.random() * window.innerWidth + "px";
+
+        // Kích thước ngẫu nhiên
+        snow.style.fontSize = (Math.random() * 10 + 10) + "px";
+
+        // Thời gian rơi
+        snow.style.animationDuration = (Math.random() * 3 + 3) + "s";
+
+        document.body.appendChild(snow);
+
+        // Xoá tuyết sau khi rơi
+        setTimeout(() => {
+            snow.remove();
+        }, 6000);
+    }
+
+    setInterval(createSnow, 150);
+</script>
+
+</body>
+</html>
